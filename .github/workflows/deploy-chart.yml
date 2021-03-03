@@ -26,7 +26,7 @@ jobs:
       - name: Release
         run: |
           export GIT_EMAIL=${{ secrets.GIT_EMAIL }}
-          export CH_TOKEN= ${{ secrets.GITHUB_TOKEN }} 
+          export CH_TOKEN=${{ secrets.GITHUB_TOKEN }} 
           export GIT_REPOSITORY_URL=$GITHUB_SERVER_URL/$GITHUB_REPOSITORY
           
           version=$(cat version)
