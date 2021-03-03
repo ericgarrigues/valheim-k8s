@@ -3,6 +3,15 @@ entries:
   valheim-k8s:
   - apiVersion: v2
     appVersion: 1.16.0
+    created: "2021-03-03T22:43:27.500203619Z"
+    description: Basic chart for deploying valheim to a k8s homelab
+    digest: 4c3ce4f75e6bb53d76de970f9b905ef8a3efa81c6b21d83ee77a6dace43e32f6
+    name: valheim-k8s
+    urls:
+    - https://github.com/ericgarrigues/valheim-k8s/releases/download/valheim-k8s-1.1.0/valheim-k8s-1.1.0.tgz
+    version: 1.1.0
+  - apiVersion: v2
+    appVersion: 1.16.0
     created: "2021-02-17T21:02:56.70338431Z"
     description: Basic chart for deploying valheim to a k8s homelab
     digest: 42f037daf0c379a8314e663fc37c339bd03f57bc7d566106845ba99e231b7e16
