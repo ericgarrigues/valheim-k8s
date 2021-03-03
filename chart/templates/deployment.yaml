@@ -1,15 +1,15 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: valheim-server
+  name:  {{ .Values.serverName | lower }}-server
 spec:
   selector:
     matchLabels:
-      app: valheim-server
+      app:  {{ .Values.serverName | lower }}-app
   template:
     metadata:
       labels:
-        app: valheim-server
+        app:  {{ .Values.serverName | lower }}-app
     spec:
       {{- with .Values.nodeSelector }}
       nodeSelector:
@@ -25,13 +25,18 @@ spec:
           value: {{ .Values.worldName }}
         - name: SERVER_PASS
           value: {{ .Values.password }}
+        - name: SERVER_PORT
+          value: "{{ .Values.serverPort1 }}"
         ports:
-        - containerPort: 2456
+        - containerPort: {{ .Values.serverPort1 | default "2456" }}
           name: game1
-        - containerPort: 2457
+          protocol: UDP
+        - containerPort: {{ .Values.serverPort2 | default "2457" }}
           name: game2
-        - containerPort: 2458
+          protocol: UDP
+        - containerPort: {{ .Values.serverPort3 | default "2458" }}
           name: game3
+          protocol: UDP
         {{ if eq .Values.storage.kind "hostvol" }}
         volumeMounts:
         - mountPath: /config
