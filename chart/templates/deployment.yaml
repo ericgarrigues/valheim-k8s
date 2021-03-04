@@ -27,6 +27,8 @@ spec:
           value: {{ .Values.password }}
         - name: SERVER_PORT
           value: "{{ .Values.serverPort1 }}"
+        - name: SERVER_PUBLIC
+          value: "{{ .Values.serverPublic | default "false" }}"
         ports:
         - containerPort: {{ .Values.serverPort1 | default "2456" }}
           name: game1
